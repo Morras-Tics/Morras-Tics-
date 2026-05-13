@@ -14,7 +14,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   /* Fondo con un degradado circular: del azul casi negro al negro total */
-  background: radial-gradient(circle at top, #0f0f1a, #050510);
+  background: radial-gradient(circle at top, #ffffff, #ffffff);
   color: #fff;
   overflow-x: hidden; /* Evita que la página baile de izquierda a derecha */
 }
@@ -32,8 +32,7 @@ header {
   align-items: center;
   padding: 15px 40px;
   z-index: 100; /* Asegura que esté por encima de todo */
-  background: #810fb6d7; /* Morado con transparencia */
-  backdrop-filter: blur(12px); /* Efecto de cristal borroso */
+background: linear-gradient(90deg, #4b1285 0%, #a20b70 100%);  backdrop-filter: blur(12px); /* Efecto de cristal borroso */
   border-bottom: 1px solid rgba(252,15,192, 0.76);
   flex-wrap: nowrap; /* Evita que el logo y menú se amontonen uno abajo de otro */
 }
@@ -108,22 +107,68 @@ header {
   text-shadow: 0 0 20px #ff00ff;
 }
 
-/* Estas partes crean las capas rosa y cian que se mueven detrás del título */
+/* Contenedor del título para asegurar que el brillo no se corte */
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  /* Un resplandor base muy tenue */
+  text-shadow: 0 0 10px rgba(245, 0, 135, 0.2); 
+}
+
 .glitch::before, .glitch::after {
-  content: attr(data-text); /* Copia el texto del título automáticamente */
+  content: attr(data-text);
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8; /* Subimos un poco la opacidad para que se note más */
 }
 
 .glitch::before {
-  color: #ff00ff;
-  animation: glitchTop 2s infinite; /* Movimiento de arriba */
+  color: #f50087; /* Rosa Mexicano */
+  z-index: -1;
+  /* Animación: Movimiento + Cambio de brillo */
+  animation: elegantVibrationTop 1.5s ease-in-out infinite;
 }
 
 .glitch::after {
-  color: #00ffff;
-  animation: glitchBottom 2s infinite; /* Movimiento de abajo */
+  color: #4b1285; /* Morado Profundo */
+  z-index: -2;
+  animation: elegantVibrationBottom 1.5s ease-in-out infinite;
+}
+
+/* Animación: Movimiento sutil + Resplandor variable */
+@keyframes elegantVibrationTop {
+  0%, 100% { 
+    transform: translate(0); 
+    filter: blur(0px);
+  }
+  15% { 
+    transform: translate(-2px, 1px); 
+    filter: blur(1px); /* Un pequeño desenfoque lo hace ver más "luz" que "error" */
+  }
+  30% { 
+    transform: translate(0); 
+    filter: blur(0px);
+  }
+}
+
+@keyframes elegantVibrationBottom {
+  0%, 100% { 
+    transform: translate(0); 
+    filter: blur(0px);
+  }
+  15% { 
+    transform: translate(2px, -1px); 
+    filter: blur(1.5px);
+    opacity: 0.5;
+  }
+  30% { 
+    transform: translate(0); 
+    filter: blur(0px);
+  }
 }
 
 /* ============================================================

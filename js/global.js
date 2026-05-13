@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const hoverScale = (size, opacity) => {
             cursor.style.width = size;
             cursor.style.height = size;
-            cursor.style.background = `radial-gradient(circle, #ff00ff${opacity}, transparent 70%)`;
+            cursor.style.background = `radial-gradient(circle, #b04fb0${opacity}, transparent 70%)`;
         };
 
         document.querySelectorAll("a, button, .card-noticia").forEach(el => {
@@ -50,19 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
                 if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
 
-                ctx.fillStyle = "#00ffff";
+                ctx.fillStyle = "#4b1285";.
                 ctx.beginPath();
                 ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
                 ctx.fill();
 
                 for (let j = i + 1; j < nodes.length; j++) {
                     const dist = Math.hypot(n.x - nodes[j].x, n.y - nodes[j].y);
-                    if (dist < 120) {
-                        ctx.strokeStyle = `rgba(0, 255, 255, ${1 - dist/120})`;
-                        ctx.beginPath();
-                        ctx.moveTo(n.x, n.y);
-                        ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.stroke();
+                     if (dist < 100) {
+                    // CORRECCIÓN: Agregamos el ` inicial y el $ antes de las llaves
+                    ctx.strokeStyle = "red"; 
+                    ctx.beginPath();
+                    ctx.moveTo(n.x, n.y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.stroke();
                     }
                 }
             });

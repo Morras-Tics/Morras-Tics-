@@ -53,7 +53,7 @@ function animate() {
     // Dibujar nodo
     ctx.beginPath();
     ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "#00ffff";
+    ctx.fillStyle = "#d03ad883";
     ctx.fill();
 
     // Movimiento

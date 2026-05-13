@@ -11,7 +11,7 @@
 body {
   margin: 0; /* Quita los espacios en blanco automáticos en los bordes */
   font-family: 'Poppins', sans-serif; /* Aplica la fuente que importamos */
-  background: #f0b5d3; /* Color de fondo rosa suave */
+  background: #fffff; /* Color de fondo rosa suave */
   color: rgb(212, 13, 129); /* Color de las letras (un rosa fuerte) */
   overflow-x: hidden; /* Evita que la página se mueva hacia los lados */
 }
@@ -29,8 +29,7 @@ header {
   align-items: center; /* Los centra verticalmente */
   padding: 15px 40px;
   z-index: 100; /* Asegura que siempre esté por encima de todo lo demás */
-  background: #810fb6d7; /* Fondo morado con transparencia */
-  backdrop-filter: blur(12px); /* Efecto de vidrio esmerilado/borroso */
+  background: linear-gradient(90deg, #4b1285 0%, #a20b70 100%);  backdrop-filter: blur(12px); /* Efecto de vidrio esmerilado/borroso */
   border-bottom: 1px solid rgba(252,15,192, 0.76); /* Línea delgadita abajo */
 }
 
@@ -64,8 +63,8 @@ header {
 
 /* Efecto cuando pasas el mouse por encima de los botones */
 .nav a:hover {
-  color: #ff00ff; /* Cambia a rosa neón */
-  box-shadow: 0 0 20px #ff00ff, inset 0 0 10px #ff00ff; /* Brillo neón */
+  color: #cf8bf4; /* Cambia a rosa neón */
+  box-shadow: 0 0 20px #ee83ee, inset 0 0 10px #ce92ce; /* Brillo neón */
   transform: translateY(-2px); /* El botón sube un poquito */
 }
 
@@ -90,7 +89,7 @@ canvas {
 
 .titulo {
   font-size: 4rem; /* Tamaño de letra muy grande */
-  color: #5a065a;
+  color: #720cb2;
   text-align: center;
 }
 
@@ -148,7 +147,7 @@ canvas {
   position: fixed;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, #ff00ff40, transparent 70%);
+  background: radial-gradient(circle, #e471e453, transparent 70%);
   pointer-events: none;
   border-radius: 50%;
   transform: translate(-50%, -50%); /* Lo centra exactamente en la punta del mouse */
