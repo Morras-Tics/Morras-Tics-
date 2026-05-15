@@ -2,14 +2,23 @@ const canvas = document.getElementById('circuitos');
 const ctx = canvas.getContext('2d');
 
 function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  const wrapper = document.querySelector('.page-wrapper');
+  if (wrapper) {
+    // El ancho sigue siendo el de la ventana
+    canvas.width = window.innerWidth;
+    // El alto ahora es el del contenedor completo (Hero + Frase)
+    canvas.height = wrapper.offsetHeight;
+  } else {
+    // Por si acaso no encuentra el wrapper, usa el alto normal
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
 }
 window.addEventListener('resize', resize);
 resize();
 
 const nodes = [];
-const nodeCount = 80;
+const nodeCount = 120;
 
 // Crear nodos
 for (let i = 0; i < nodeCount; i++) {

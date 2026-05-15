@@ -68,7 +68,7 @@ background: linear-gradient(90deg, #4b1285 0%, #a20b70 100%);  backdrop-filter: 
   padding: 8px 16px;
   border-radius: 20px;
   text-decoration: none; /* Quita el subrayado */
-  color: #fff;
+  color: #630d80;
   font-weight: 500;
   transition: 0.3s;
   background: rgba(255, 255, 255, 0.05);

@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f0b5d3;
-  color: #fff;
+  background: #ffffff;
+  color: #333; /* Cambiado a oscuro para leerse sobre el fondo blanco */
   overflow-x: hidden;
 }
 
@@ -24,25 +31,25 @@ body {
 }
 
 /* =====================================================
-   TEXTOS Y TÍTULOS
+   TEXTOS Y TÍTULOS (CAMBIADOS A COLORES PRINCIPALES)
    ===================================================== */
 
 .section .titulo {
   text-align: center;
   font-size: 3rem;
-  color: #ff00ff;
-  text-shadow: 0 0 15px #ff00ff;
+  color: #4b1285; /* Morado principal */
+  text-shadow: 0 0 15px rgba(75, 18, 133, 0.2); /* Sombra morada suave */
   margin-bottom: 30px;
 }
 
 .section h2 {
-  color: #00ffff;
+  color: #f50087; /* Rosa principal */
   margin-bottom: 15px;
 }
 
 .section p {
   line-height: 1.8;
-  color: #e0e0e0;
+  color: #444444; /* Gris oscuro para legibilidad sobre blanco */
   font-size: 1.05rem;
 }
 
@@ -74,7 +81,7 @@ body {
 }
 
 /* =====================================================
-   TARJETAS DE ROLES
+   TARJETAS DE ROLES (COMPORTAMIENTO ORIGINAL INTACTO)
    ===================================================== */
 
 .roles-grid {
@@ -98,8 +105,8 @@ body {
 
 .rol-card:hover {
   transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 25px #ff00ff, 0 0 40px #00ffff;
-  border-color: #00ffff;
+  box-shadow: 0 0 25px #820aba89, 0 0 40px #7516e977;
+  border-color: #6c0a99;
 }
 
 /* Imagen sin cortes */
@@ -139,18 +146,18 @@ body {
 
 .rol-card.activo .icono-svg {
   background: rgba(0, 255, 255, 0.15);
-  border-color: #00ffff;
+  border-color: #cd0fc7;
   transform: rotate(180deg);
 }
 
 .rol-card.activo .flecha-svg {
-  stroke: #00ffff;
+  stroke: #be19e7;
 }
 
 .rol-descripcion {
   display: none;
   margin-top: 10px;
-  color: #ddd;
+  color: #333; /* Cambiado a oscuro para que se lea al abrirse */
   font-size: 0.9rem;
 }
 
@@ -177,7 +184,7 @@ body {
 .carrusel img {
   width: 220px;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(245, 0, 135, 0.2); /* Sombra adaptada a rosa */
 }
 
 @keyframes scrollCarrusel {
@@ -198,14 +205,14 @@ body {
   margin-bottom: 10px;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid #ff00ff;
+  background: rgba(255, 255, 255, 0.9); /* Cambiado para contraste sobre blanco */
+  border: 1px solid #f50087; /* Borde rosa principal */
 }
 
 .titulo-item {
   width: 100%;
   background: transparent;
-  color: #fff;
+  color: #4b1285; /* Texto morado principal */
   border: none;
   padding: 15px;
   text-align: left;
@@ -214,15 +221,15 @@ body {
 }
 
 .titulo-item:hover {
-  background: rgba(255, 0, 255, 0.2);
+  background: rgba(245, 0, 135, 0.05); /* Fondo hover rosa tenue */
 }
 
 .contenido-item {
   display: none;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid #ff00ff;
-  color: #b80d46;
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid #f50087;
+  color: #333; /* Texto legible */
 }
 
 /* =====================================================
@@ -247,145 +254,63 @@ body {
     height: 200px;
   }
 }
+
 /* =====================================================
-   ✨ BURBUJAS DREAMY TECH
+   ✨ BURBUJAS ADAPTADAS A COLORES PRINCIPALES
    ===================================================== */
 
-
-/* Primera capa de partículas */
 body::before {
-
   content: "";
-
   position: fixed;
-
   inset: 0;
-
   pointer-events: none;
-
   z-index: -1;
-
   opacity: 0.6;
-
-  /* Glitter + burbujas */
   background-image:
-
-    radial-gradient(
-      circle,
-      rgba(255,255,255,0.8) 2px,
-      transparent 4px
-    ),
-
-    radial-gradient(
-      circle,
-      rgba(255,0,255,0.35) 3px,
-      transparent 6px
-    ),
-
-    radial-gradient(
-      circle,
-      rgba(0,255,255,0.25) 2px,
-      transparent 5px
-    ),
-
-    radial-gradient(
-      circle,
-      rgba(255,255,255,0.25) 8px,
-      transparent 12px
-    );
-
+    radial-gradient(circle, rgba(75, 18, 133, 0.15) 2px, transparent 4px), /* Morado */
+    radial-gradient(circle, rgba(245, 0, 135, 0.15) 3px, transparent 6px), /* Rosa */
+    radial-gradient(circle, rgba(75, 18, 133, 0.1) 2px, transparent 5px),
+    radial-gradient(circle, rgba(245, 0, 135, 0.05) 8px, transparent 12px);
   background-size:
     180px 180px,
     260px 260px,
     320px 320px,
     420px 420px;
-
   animation: burbujasFloat 22s linear infinite;
 }
 
-
-/* Segunda capa más suave */
 body::after {
-
   content: "";
-
   position: fixed;
-
   inset: 0;
-
   pointer-events: none;
-
   z-index: -1;
-
   opacity: 0.3;
-
   background-image:
-
-    radial-gradient(
-      circle,
-      rgba(255,255,255,0.4) 1px,
-      transparent 3px
-    ),
-
-    radial-gradient(
-      circle,
-      rgba(255,0,255,0.2) 2px,
-      transparent 4px
-    );
-
+    radial-gradient(circle, rgba(75, 18, 133, 0.1) 1px, transparent 3px),
+    radial-gradient(circle, rgba(245, 0, 135, 0.1) 2px, transparent 4px);
   background-size:
     120px 120px,
     240px 240px;
-
   animation: glitterMove 30s linear infinite;
 }
 
+/* SEGURO ANTI-BLOQUEO: Para que el cursor neón de fondo jamás te robe el clic */
+.cursor-luz {
+  pointer-events: none !important;
+}
 
 /* =====================================================
    🌸 ANIMACIONES
    ===================================================== */
 
-
-/* Movimiento suave flotante */
 @keyframes burbujasFloat {
-
-  0% {
-
-    transform:
-      translateY(0)
-      translateX(0);
-  }
-
-  50% {
-
-    transform:
-      translateY(-40px)
-      translateX(20px);
-  }
-
-  100% {
-
-    transform:
-      translateY(-80px)
-      translateX(-20px);
-  }
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-40px) translateX(20px); }
+  100% { transform: translateY(-80px) translateX(-20px); }
 }
 
-
-/* Movimiento diagonal lento */
 @keyframes glitterMove {
-
-  from {
-
-    transform:
-      translateY(0)
-      translateX(0);
-  }
-
-  to {
-
-    transform:
-      translateY(-120px)
-      translateX(-60px);
-  }
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-120px) translateX(-60px); }
 }
