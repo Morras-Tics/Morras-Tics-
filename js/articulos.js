@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (lista.length === 0) {
       contenedor.innerHTML = `
         <div class="empty-state">
-          <h2>🧠 Sin artículos</h2>
+          <h2>Sin artículos...</h2>
         </div>
       `;
       return;

@@ -65,20 +65,31 @@ body::before {
   margin-bottom: 25px;
   text-transform: uppercase;
   letter-spacing: 6px;
-  /* Degradado futurista */
+  font-weight: 600;
+
   background: linear-gradient(
     90deg,
-    #ff00ff,
-    #00ffff
+    #4b1285, 
+    #f50087
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* Glow brillante */
+
   filter: drop-shadow(
-    0 0 12px rgba(255,0,255,0.7)
+    0 0 10px rgba(245, 0, 135, 0.3)
   );
-  /* Animación del brillo */
+
   animation: glowTitulo 3s infinite alternate;
+}
+
+/* Ajuste de la animación para que el brillo sea rosa sutil */
+@keyframes glowTitulo {
+  from {
+    filter: drop-shadow(0 0 8px rgba(245, 0, 135, 0.2));
+  }
+  to {
+    filter: drop-shadow(0 0 15px rgba(245, 0, 135, 0.5));
+  }
 }
 
 
