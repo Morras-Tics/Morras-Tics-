@@ -87,6 +87,21 @@ header {
   text-align: center;      /* ESTO asegura que el texto dentro se alinee al medio */
 }
 
+.contenedor-hero {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Fondo especial (si usas un fondo animado con código JavaScript) */
 canvas {
   position: absolute;
@@ -99,11 +114,23 @@ canvas {
 }
 
 .titulo {
-  font-size: 4rem;
-  color: #4b1285; /* Morado Morras TIC's */
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  background: linear-gradient(90deg, #4b1285, #f50087, #4b1285);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   text-align: center;
-  margin-bottom: 0; /* ESTO quita el espacio de abajo del título */
-  line-height: 1.1; /* Ajusta la altura de la línea para que no sea tan alta */
+  margin-bottom: 0;
+  line-height: 1.1;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .subtitulo {
