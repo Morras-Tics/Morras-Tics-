@@ -1,6 +1,5 @@
 /* Importamos una fuente bonita (Poppins) desde Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Notable&family=Titan+One&display=swap');
 * {
   /* Esto hace que el tamaño de las cajas sea más fácil de calcular */
   box-sizing: border-box;
@@ -99,22 +98,54 @@ canvas {
 }
 
 .titulo {
-  font-size: 4rem;
-  color: #4b1285; /* Morado Morras TIC's */
+  font-family: 'Titan One', sans-serif;
+  font-size: 5rem;
   text-align: center;
-  margin-bottom: 0; /* ESTO quita el espacio de abajo del título */
-  line-height: 1.1; /* Ajusta la altura de la línea para que no sea tan alta */
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    90deg,
+    #ff00cc,
+    #a855f7,
+    #00e5ff,
+    #ff00cc
+  );
+
+  background-size: 300%;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: brillo 6s linear infinite,
+             flotando 3s ease-in-out infinite;
+
+  letter-spacing: 4px;
+
+  text-shadow:
+    0 0 10px rgba(255,0,200,0.4),
+    0 0 20px rgba(168,85,247,0.3),
+    0 0 40px rgba(0,229,255,0.2);
 }
 
-.subtitulo {
-  color: #f50087; /* Rosa Mexicano */
-  font-size: 1.5rem;
-  margin-top: 5px;   /* Un espacio muy pequeño para que no se peguen tanto */
-  margin-bottom: 30px; /* Espacio antes del botón */
-  text-align: center;
-  width: 100%;
-  position: relative;
-  z-index: 10;
+/* Movimiento del gradiente */
+@keyframes brillo {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
+}
+
+/* Movimiento flotante */
+@keyframes flotando {
+  0%, 300% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* ============================================================

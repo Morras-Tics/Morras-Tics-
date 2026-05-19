@@ -18,7 +18,7 @@
   border-radius: 30px;
   border: 1px solid rgba(255, 0, 255, 0.4);
   background: rgba(255, 255, 255, 0.05);
-  color: white;
+  color: rgb(221, 18, 204);
   font-size: 1rem;
   backdrop-filter: blur(10px);
   transition: 0.3s;
@@ -31,7 +31,7 @@
 }
 
 .buscador::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(252, 14, 153, 0.4);
 }
 
 /* La cuadrícula donde se acomodan los artículos */
