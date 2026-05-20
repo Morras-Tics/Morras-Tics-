@@ -86,6 +86,21 @@ header {
   text-align: center;      /* ESTO asegura que el texto dentro se alinee al medio */
 }
 
+.contenedor-hero {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Fondo especial (si usas un fondo animado con código JavaScript) */
 canvas {
   position: absolute;
