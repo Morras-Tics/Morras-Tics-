@@ -79,30 +79,7 @@ function animate() {
 
 animate();
 
-/// Espera a que el DOM cargue
-document.addEventListener("DOMContentLoaded", () => {
-  // CURSOR LUZ
-  const cursor = document.querySelector(".cursor-luz");
 
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-  });
-
-  // Cursor al pasar sobre botones y enlaces
-  document.querySelectorAll("a, button").forEach(el => {
-    el.addEventListener("mouseenter", () => {
-      cursor.style.width = "250px";
-      cursor.style.height = "250px";
-      cursor.style.background = "radial-gradient(circle, #ff00ff80, transparent 70%)";
-    });
-    el.addEventListener("mouseleave", () => {
-      cursor.style.width = "200px";
-      cursor.style.height = "200px";
-      cursor.style.background = "radial-gradient(circle, #ff00ff40, transparent 70%)";
-    });
-  });
-});
 // DESPLEGAR INFORMACIÓN DE ROLES
 function toggleRol(card) {
   // Cierra las demás tarjetas

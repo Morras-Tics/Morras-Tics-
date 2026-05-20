@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           <div class="contador" data-fecha="${aviso.fecha}"></div>
 
-          ${aviso.urgente ? '<span class="badge">🔥 URGENTE</span>' : ''}
+          ${aviso.urgente ? '<span class="badge"> URGENTE</span>' : ''}
 
           ${
             aviso.link &&

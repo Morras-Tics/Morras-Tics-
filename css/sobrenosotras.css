@@ -8,8 +8,8 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #ffffff;
-  color: #333; /* Cambiado a oscuro para leerse sobre el fondo blanco */
+  background: #f0b5d3;
+  color: #ee7b7b;
   overflow-x: hidden;
 }
 
@@ -43,13 +43,13 @@ body {
 }
 
 .section h2 {
-  color: #f50087; /* Rosa principal */
+  color: #76088b;
   margin-bottom: 15px;
 }
 
 .section p {
   line-height: 1.8;
-  color: #444444; /* Gris oscuro para legibilidad sobre blanco */
+  color: #0c0a0a;
   font-size: 1.05rem;
 }
 

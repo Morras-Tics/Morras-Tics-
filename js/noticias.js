@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       <div class="card-destacada" onclick="verNoticia(${top.id})" style="cursor:pointer;">
         ${top.imagen ? `<img src="${top.imagen}">` : ""}
         <div class="contenido">
-          <h2>🔥 ${top.titulo}</h2>
+          <h2> ${top.titulo}</h2>
           <p>${top.descripcion ? top.descripcion.substring(0, 150) + "..." : ""}</p>
           <button onclick="verNoticia(${top.id})">📖 Leer más</button>
         </div>
