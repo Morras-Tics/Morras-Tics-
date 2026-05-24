@@ -11,9 +11,7 @@
 </head>
 
 <body>
-
-<div class="cursor-luz"></div>
-
+  <canvas id="circuitos"></canvas>
 <header>
   <div class="logo-container">
     <img src="assets/img/logo-morras-tics.png" alt="Logo" class="logo-img">
@@ -114,6 +112,16 @@
 </footer>
 
   <script src="js/global.js"></script>
+    <script>
+    function toggleRol(card) {
+      document.querySelectorAll('.rol-card').forEach(function(c) {
+        if (c !== card) c.classList.remove('activo');
+      });
+      card.classList.toggle('activo');
+    }
+  </script>
+
+</body>
 
 </body>
 </html>

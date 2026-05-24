@@ -101,6 +101,7 @@ body {
   box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
   transition: all 0.4s ease;
   cursor: pointer;
+  overflow: visible;
 }
 
 .rol-card:hover {
@@ -154,15 +155,32 @@ body {
   stroke: #be19e7;
 }
 
+/* DESCRIPCIÓN OCULTA */
 .rol-descripcion {
-  display: none;
-  margin-top: 10px;
-  color: #333; /* Cambiado a oscuro para que se lea al abrirse */
-  font-size: 0.9rem;
+  max-height: 0;
+  overflow: hidden;
+
+  opacity: 0;
+
+  margin-top: 0;
+
+  transition:
+    max-height 0.5s ease,
+    opacity 0.4s ease,
+    margin-top 0.4s ease;
+
+  color: #f3eaff;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
+/* CUANDO SE ABRE */
 .rol-card.activo .rol-descripcion {
-  display: block;
+  max-height: 200px;
+
+  opacity: 1;
+
+  margin-top: 15px;
 }
 
 /* =====================================================
