@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
                 if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
 
-                ctx.fillStyle = "#4b1285";.
+                ctx.fillStyle = "#4b1285";
                 ctx.beginPath();
                 ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
                 ctx.fill();
