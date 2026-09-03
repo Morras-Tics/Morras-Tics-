@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (error) return console.error(error);
 
     todasNoticias = data;
-    render(data); // ✅ solo una vez
+    render(data);
   }
 
   function render(lista) {
@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     destacada.innerHTML = `
       <div class="card-destacada" onclick="verNoticia(${top.id})" style="cursor:pointer;">
-        ${top.imagen ? `<img src="${top.imagen}">` : ""}
+        ${top.imagen ? `<img src="${top.imagen}" class="img-destacada">` : ""}
         <div class="contenido">
-          <h2> ${top.titulo}</h2>
+          <h2>${top.titulo}</h2>
           <p>${top.descripcion ? top.descripcion.substring(0, 150) + "..." : ""}</p>
           <button onclick="verNoticia(${top.id})">📖 Leer más</button>
         </div>
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal.innerHTML = `
       <div class="modal-contenido">
         <span class="cerrar" onclick="document.getElementById('modal-noticia').remove()">✕</span>
-        ${noticia.imagen ? `<img src="${noticia.imagen}" style="width:100%;border-radius:10px;margin-bottom:15px;">` : ""}
+        ${noticia.imagen ? `<img src="${noticia.imagen}" class="img-modal">` : ""}
         <h2>${noticia.titulo}</h2>
         <small>📅 ${noticia.fecha || ""}</small>
         <hr style="border-color:#ff00ff33; margin:15px 0;">

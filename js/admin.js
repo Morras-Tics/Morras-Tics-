@@ -69,19 +69,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     cargarAvisos();
   };
 
-  window.editarAviso = async (id) => {
-    const { data } = await supabase
-      .from("avisos").select("*").eq("id", id).single();
-    if (data) {
-      document.getElementById("titulo").value = data.titulo;
-      document.getElementById("descripcion").value = data.descripcion;
-      document.getElementById("fecha").value = data.fecha;
-      if (document.getElementById("categoria"))
-        document.getElementById("categoria").value = data.categoria;
-      editandoId = id;
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
+window.editarAviso = async (id) => {
+  const { data } = await supabase
+    .from("avisos").select("*").eq("id", id).single();
+  if (data) {
+    document.getElementById("titulo").value = data.titulo;
+    document.getElementById("descripcion").value = data.descripcion;
+    document.getElementById("fecha").value = data.fecha;
+    if (document.getElementById("categoria"))
+      document.getElementById("categoria").value = data.categoria;
+    if (document.getElementById("link"))
+      document.getElementById("link").value = data.link || "";
+    if (document.getElementById("urgente"))
+      document.getElementById("urgente").checked = data.urgente || false;
+    if (document.getElementById("destacado"))
+      document.getElementById("destacado").checked = data.destacado || false;
+    editandoId = id;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
 
   if (formAvisos) {
     formAvisos.addEventListener("submit", async (e) => {
@@ -92,8 +98,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const categoria = document.getElementById("categoria")?.value || "General";
       const urgente = document.getElementById("urgente")?.checked || false;
       const destacado = document.getElementById("destacado")?.checked || false;
-      link: document.getElementById("link").value || null
-
+      const link= document.getElementById("link").value || null;
       const payload = { titulo, descripcion, fecha, categoria, urgente, destacado, link };
 
       if (editandoId) {

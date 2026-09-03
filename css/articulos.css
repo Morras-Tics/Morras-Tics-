@@ -3,12 +3,11 @@
    ============================================================ */
 
 .articulos {
-  padding-top: 120px; /* Espacio para que el menú de arriba no tape el contenido */
+  padding-top: 120px;
   max-width: 1200px;
   margin: auto;
 }
 
-/* El buscador de la parte superior */
 .buscador {
   display: block;
   width: 100%;
@@ -34,12 +33,12 @@
   color: rgba(252, 14, 153, 0.4);
 }
 
-/* La cuadrícula donde se acomodan los artículos */
 .grid-articulos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   padding: 20px;
+  align-items: start; /* cada tarjeta respeta su propia altura */
 }
 
 /* ============================================================
@@ -47,17 +46,16 @@
    ============================================================ */
 
 .card-articulo {
-  background: rgba(255,255,255,0.05); /* Efecto cristal transparente */
-  border: 1px solid rgba(255,0,255,0.3); /* Borde rosa suave */
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,0,255,0.3);
   border-radius: 15px;
   padding: 20px;
-  backdrop-filter: blur(10px); /* Hace que el fondo se vea borroso */
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 15px rgba(255,0,255,0.2);
   transition: 0.3s;
-  animation: entradaCard 0.5s ease backwards; /* Animación al aparecer */
+  animation: entradaCard 0.5s ease backwards;
 }
 
-/* Las cards aparecen una tras otra con retraso */
 .card-articulo:nth-child(1) { animation-delay: 0.1s; }
 .card-articulo:nth-child(2) { animation-delay: 0.2s; }
 .card-articulo:nth-child(3) { animation-delay: 0.3s; }
@@ -66,24 +64,25 @@
 .card-articulo:nth-child(6) { animation-delay: 0.6s; }
 
 .card-articulo:hover {
-  transform: translateY(-5px) scale(1.02); /* El cuadro sube y crece un poquito */
-  box-shadow: 0 0 25px #ff00ff; /* Brillo rosa intenso */
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 25px #ff00ff;
 }
 
-/* Imagen dentro de la tarjeta */
-.card-articulo img, .img-articulo {
+/* Imagen dentro de la tarjeta: se adapta sin recortar */
+.card-articulo img, .img-articulo, .img-aviso {
   width: 100%;
-  height: 180px;
-  object-fit: cover; /* Ajusta la foto para que llene el espacio sin estirarse */
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
   border-radius: 10px;
   margin-bottom: 10px;
+  background: #1a0d2e;
 }
 
 .card-articulo h3 {
-  color: #00ffff; /* Título en color cian */
+  color: #00ffff;
 }
 
-/* Si el artículo es "Destacado", le ponemos un borde dorado */
 .destacado {
   border: 2px solid gold;
   box-shadow: 0 0 20px gold;
@@ -100,7 +99,6 @@
   margin-top: 10px;
 }
 
-/* El botón de Like */
 .like-btn {
   background: #222;
   color: white;
@@ -111,14 +109,12 @@
   transition: transform 0.2s;
 }
 
-/* Cuando ya le diste Like — se pone rojo y hace un pequeño brinco */
 .like-btn.liked {
   color: #ff0055;
   transform: scale(1.2);
   animation: likePop 0.3s ease;
 }
 
-/* Caja de comentarios */
 .lista-comentarios p {
   background: rgba(255,255,255,0.05);
   padding: 8px 12px;
@@ -132,7 +128,6 @@
    🖼️ VENTANA EMERGENTE (MODAL PARA LEER MÁS)
    ============================================================ */
 
-/* ✅ .modal unificado — posición + animación en un solo bloque */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -143,7 +138,7 @@
   align-items: center;
   z-index: 9999;
   padding: 20px;
-  animation: fondoFade 0.3s ease; /* El fondo oscuro aparece con fade suave */
+  animation: fondoFade 0.3s ease;
 }
 
 .modal-contenido {
@@ -157,20 +152,20 @@
   overflow-y: auto;
   color: white;
   position: relative;
-  /* Animación divertida: cae desde arriba, rota levemente y rebota al llegar */
   animation: modalCaida 0.5s cubic-bezier(0.22, 1.5, 0.36, 1);
 }
 
-/* Imagen dentro del modal — tamaño controlado */
-.modal-contenido img {
+/* Imagen dentro del modal: se adapta sin recortar */
+.modal-contenido img, .img-modal {
   width: 100%;
-  max-height: 250px;    /* Limita la altura para que no ocupe toda la pantalla */
-  object-fit: cover;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
   border-radius: 12px;
   margin-bottom: 15px;
+  background: #1a0d2e;
 }
 
-/* El botón "X" para cerrar */
 .cerrar {
   position: absolute;
   top: 15px; right: 20px;
@@ -181,11 +176,10 @@
 }
 
 .cerrar:hover {
-  transform: scale(1.3) rotate(90deg); /* Rota al pasar el mouse — efecto divertido */
+  transform: scale(1.3) rotate(90deg);
   text-shadow: 0 0 10px #ff00ff;
 }
 
-/* Estilo de la barrita de scroll dentro de la ventana */
 .modal-contenido::-webkit-scrollbar { width: 5px; }
 .modal-contenido::-webkit-scrollbar-thumb {
   background: #ff00ff;
@@ -196,40 +190,22 @@
    ✨ ANIMACIONES
    ============================================================ */
 
-/* Las cards entran desde abajo con un pequeño rebote */
 @keyframes entradaCard {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* El modal cae desde arriba rotando levemente y rebota al llegar */
 @keyframes modalCaida {
-  0% {
-    opacity: 0;
-    transform: translateY(-60px) rotate(-3deg) scale(0.9);
-  }
-  60% {
-    transform: translateY(10px) rotate(1deg) scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(-60px) rotate(-3deg) scale(0.9); }
+  60% { transform: translateY(10px) rotate(1deg) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
 }
 
-/* El fondo oscuro del modal aparece con fade suave */
 @keyframes fondoFade {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-/* El corazón del like hace un pequeño brinco al activarse */
 @keyframes likePop {
   0%   { transform: scale(1); }
   50%  { transform: scale(1.5); }

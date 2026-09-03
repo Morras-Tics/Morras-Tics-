@@ -3,7 +3,6 @@ import { verificarSesion, cerrarSesion } from "./auth.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-  // ✅ Verificar sesión
   const session = await verificarSesion();
   if (!session) return;
 
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   let editandoId = null;
   let imagenActual = "";
 
-  // 👁️ VISTA PREVIA
   previewBtn.addEventListener("click", () => {
     const titulo = document.getElementById("titulo").value;
     const autor = document.getElementById("autor").value;
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
   });
 
-  // 📥 CARGAR
   async function cargarArticulos() {
     const { data, error } = await supabase
       .from("articulos").select("*").order("fecha", { ascending: false });
@@ -95,7 +92,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // 🚀 PUBLICAR
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const file = document.getElementById("imagen").files[0];
@@ -109,7 +105,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const { data: urlData } = supabase.storage
           .from("imagenes").getPublicUrl(path);
         url = urlData.publicUrl;
-        console.log("URL generada:", url);
       }
     }
 
@@ -136,7 +131,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     cargarArticulos();
   });
 
-  // 🗑️ ELIMINAR
   window.eliminarArticulo = async (id, imagen) => {
     if (!confirm("¿Deseas eliminar este artículo?")) return;
     try {

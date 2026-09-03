@@ -8,12 +8,13 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f0b5d3;
-  color: #f8f8f8;
+  background: #ffffff;
+  color: #ffffff;
   overflow-x: hidden;
 }
 
 #circuitos {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -89,6 +90,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
   margin: 40px auto;
+  align-items:start;
 }
 
 .rol-card {
