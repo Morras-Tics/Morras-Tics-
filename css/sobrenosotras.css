@@ -32,14 +32,14 @@ body {
 }
 
 /* =====================================================
-   TEXTOS Y TÍTULOS (CAMBIADOS A COLORES PRINCIPALES)
+   TEXTOS Y TÍTULOS
    ===================================================== */
 
 .section .titulo {
   text-align: center;
   font-size: 3rem;
-  color: #4b1285; /* Morado principal */
-  text-shadow: 0 0 15px rgba(75, 18, 133, 0.2); /* Sombra morada suave */
+  color: #4b1285;
+  text-shadow: 0 0 15px rgba(75, 18, 133, 0.2);
   margin-bottom: 30px;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 /* =====================================================
-   TARJETAS DE ROLES (COMPORTAMIENTO ORIGINAL INTACTO)
+   TARJETAS DE ROLES — ÚNICO BLOQUE CON PALETA PASTEL
    ===================================================== */
 
 .roles-grid {
@@ -90,39 +90,55 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
   margin: 40px auto;
-  align-items:start;
+  align-items: start;
 }
 
 .rol-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(160deg, #F6E9FB 0%, #FCE3F0 100%);
   border-radius: 20px;
-  padding: 25px;
+  padding: 22px;
   text-align: center;
-  border: 1px solid rgba(255, 0, 255, 0.3);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+  border: 1px solid #E7BFE8;
+  box-shadow: 0 4px 18px rgba(178, 108, 199, 0.18);
   transition: all 0.4s ease;
   cursor: pointer;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .rol-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 25px #820aba89, 0 0 40px #7516e977;
-  border-color: #6c0a99;
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(178, 108, 199, 0.3);
+  border-color: #D89FDB;
 }
 
-/* Imagen sin cortes */
-.rol-card img {
+.rol-card h3 {
+  /*color: #5B2A7A;
+  font-weight: 600;
+  margin: 4px 0 0;*/
+  display: none;
+  
+}
+
+/* Contenedor que recorta el nombre dibujado en la imagen */
+.rol-imagen {
   width: 100%;
-  height: 160px;
-  object-fit: contain;
-  object-position: center bottom;
-  margin-bottom: 12px;
-  display: block;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: #F3E8FB;
 }
 
-/* Flecha SVG mejorada */
+.rol-imagen img,
+.rol-card > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
 .icono-svg {
   display: flex;
   align-items: center;
@@ -131,8 +147,8 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 0, 255, 0.12);
-  border: 1.5px solid rgba(255, 0, 255, 0.5);
+  background: rgba(216, 159, 219, 0.25);
+  border: 1.5px solid rgba(216, 159, 219, 0.6);
   transition: all 0.3s ease;
 }
 
@@ -140,7 +156,7 @@ body {
   width: 18px;
   height: 18px;
   fill: none;
-  stroke: #ff00ff;
+  stroke: #A855C9;
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -148,40 +164,32 @@ body {
 }
 
 .rol-card.activo .icono-svg {
-  background: rgba(0, 255, 255, 0.15);
-  border-color: #cd0fc7;
+  background: rgba(245, 0, 135, 0.15);
+  border-color: #F5B4DC;
   transform: rotate(180deg);
 }
 
 .rol-card.activo .flecha-svg {
-  stroke: #be19e7;
+  stroke: #D6409F;
 }
 
-/* DESCRIPCIÓN OCULTA */
 .rol-descripcion {
   max-height: 0;
   overflow: hidden;
-
   opacity: 0;
-
   margin-top: 0;
-
   transition:
     max-height 0.5s ease,
     opacity 0.4s ease,
     margin-top 0.4s ease;
-
-  color: #f3eaff;
+  color: #6B4B7A;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
-/* CUANDO SE ABRE */
 .rol-card.activo .rol-descripcion {
   max-height: 200px;
-
   opacity: 1;
-
   margin-top: 15px;
 }
 
@@ -204,7 +212,7 @@ body {
 .carrusel img {
   width: 220px;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(245, 0, 135, 0.2); /* Sombra adaptada a rosa */
+  box-shadow: 0 0 15px rgba(245, 0, 135, 0.2);
 }
 
 @keyframes scrollCarrusel {
@@ -225,14 +233,14 @@ body {
   margin-bottom: 10px;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); /* Cambiado para contraste sobre blanco */
-  border: 1px solid #f50087; /* Borde rosa principal */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #f50087;
 }
 
 .titulo-item {
   width: 100%;
   background: transparent;
-  color: #4b1285; /* Texto morado principal */
+  color: #4b1285;
   border: none;
   padding: 15px;
   text-align: left;
@@ -241,7 +249,7 @@ body {
 }
 
 .titulo-item:hover {
-  background: rgba(245, 0, 135, 0.05); /* Fondo hover rosa tenue */
+  background: rgba(245, 0, 135, 0.05);
 }
 
 .contenido-item {
@@ -249,7 +257,7 @@ body {
   padding: 15px;
   background: rgba(0, 0, 0, 0.02);
   border-top: 1px solid #f50087;
-  color: #333; /* Texto legible */
+  color: #333;
 }
 
 /* =====================================================
@@ -276,7 +284,7 @@ body {
 }
 
 /* =====================================================
-   ✨ BURBUJAS ADAPTADAS A COLORES PRINCIPALES
+   ✨ BURBUJAS
    ===================================================== */
 
 body::before {
@@ -287,8 +295,8 @@ body::before {
   z-index: -1;
   opacity: 0.6;
   background-image:
-    radial-gradient(circle, rgba(75, 18, 133, 0.15) 2px, transparent 4px), /* Morado */
-    radial-gradient(circle, rgba(245, 0, 135, 0.15) 3px, transparent 6px), /* Rosa */
+    radial-gradient(circle, rgba(75, 18, 133, 0.15) 2px, transparent 4px),
+    radial-gradient(circle, rgba(245, 0, 135, 0.15) 3px, transparent 6px),
     radial-gradient(circle, rgba(75, 18, 133, 0.1) 2px, transparent 5px),
     radial-gradient(circle, rgba(245, 0, 135, 0.05) 8px, transparent 12px);
   background-size:
@@ -315,7 +323,6 @@ body::after {
   animation: glitterMove 30s linear infinite;
 }
 
-/* SEGURO ANTI-BLOQUEO: Para que el cursor neón de fondo jamás te robe el clic */
 .cursor-luz {
   pointer-events: none !important;
 }
